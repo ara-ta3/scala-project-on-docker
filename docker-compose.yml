@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+    subuta_1:
+        image: hseeberger/scala-sbt
+        volumes:
+            - .:/opt/project
+        command: sbt '~compile'
+        working_dir: /opt/project
+        tty: true
+
+    subuta_2:
+        build: .
+        volumes:
+            - .:/opt/project
+        command: make compile/watch
+        working_dir: /opt/project
+        tty: true
+
